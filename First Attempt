@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar 13 07:21:42 2017
+
+@author: pradeep
+"""
+
+import telepot
+bot=telepot.Bot('375915603:AAHxbOrD25Gzf3yBYolfAViz779FKF4C-l4')
+k=0
+while True:
+    c=bot.getUpdates(offset=100000001)
+    d=c[len(c)-1]
+    e=d[u'message']
+    f=str(e[u'text'])
+    f1=e[u'chat']
+    g=f1[u'id']
+    if(len(c)!=k):
+        if (f=='hi'):
+            bot.sendMessage(g, 'Hey!')
+        elif(f=='good')or(f=='great'):
+            bot.sendMessage(g,'Nice')
+        else:
+           bot.sendMessage(g,'I am sorry I should learn more to fulfill your needs which i will do asap')
+        k=len(c)
+        print(k)
